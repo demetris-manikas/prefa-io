@@ -1,0 +1,36 @@
+{
+  "name": "prefa-io",
+  "version": "0.0.1",
+  "description": "prefa app based on socket.io",
+  "author": "Demetris Manikas <demetris.manikas@gmail.com>",
+  "license": "UNLICENSED",
+  "private": true,
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/demetris-manikas/prefa-io.git"
+  },
+  "dependencies": {
+    "express": "^4.14.0",
+    "socket.io": "^1.7.1"
+  },
+  "devDependencies": {
+    "eslint": "",
+    "jsonlint": "",
+    "pre-git": ""
+  },
+  "scripts": {
+    "compile": "npm run eslint && npm run jsonlint ",
+    "eslint": "eslint `find . -name '*.js'|grep -v www/index.js |grep -v node_modules| grep -v .eslintrc.js`",
+    "jsonlint": "find src/app/server/static/data -name '*.json' -exec jsonlint -q {} \\;",
+    "serve": "node src/app/server/js/index.js",
+    "commit": "commit-wizard"
+  },
+  "config": {
+    "pre-git": {
+      "commit-msg": "conventional",
+      "pre-commit": [
+        "npm run compile"
+      ]
+    }
+  }
+}

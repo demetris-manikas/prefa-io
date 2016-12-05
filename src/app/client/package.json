@@ -1,0 +1,27 @@
+{
+  "name": "prefa-io",
+  "version": "0.0.1",
+  "description": "prefa app based on socket.io",
+  "author": "Demetris Manikas <demetris.manikas@gmail.com>",
+  "license": "UNLICENSED",
+  "private": true,
+  "dependencies": {
+    "jquery": "",
+    "backbone": "",
+    "underscore": ""
+  },
+  "devDependencies": {
+    "less": "",
+    "webpack": "",
+    "file-loader": "",
+    "html-loader": "",
+    "style-loader": "",
+    "css-loader": "",
+    "url-loader": ""
+  },
+  "scripts": {
+    "release": "npm run lessc; ./node_modules/.bin/webpack  --optimize-minimize",
+    "dist": "npm run lessc; ./node_modules/.bin/webpack",
+    "lessc": "./node_modules/.bin/lessc www/css/prefa-io.less > www/css/prefa-io.css"
+  }
+}
