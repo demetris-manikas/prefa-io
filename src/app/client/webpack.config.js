@@ -23,7 +23,11 @@ module.exports = {
             i18n: 'models/i18n',
             // Views
             base: 'views/base',
-            home: 'views/home'
+            home: 'views/home',
+            game: 'views/game',
+            hand: 'views/hand',
+            card: 'views/card'
+
         }
     },
     module: {
@@ -33,7 +37,7 @@ module.exports = {
         loaders: [
             {test: /\.html$/, loader: 'html' },
             {test: /\.css$/, loader: 'style!css' },
-            {test: /\.(png|woff|woff2|eot|ttf|svg)$/, loader: 'url-loader?limit=100000' }
+            {test: /\.(png|woff|woff2|eot|gif|ttf|svg)$/, loader: 'url-loader?limit=100000' }
         ]
     }
 };

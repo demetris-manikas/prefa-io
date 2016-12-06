@@ -22,7 +22,7 @@ define([
         },
 
         home: function () {
-            this.HomeView.render();
+//            this.HomeView.render();
         },
 
         notFound: function () {

@@ -4,8 +4,9 @@ define([
     'backbone',
     'base',
     'globals',
+    'game',
     '../../templates/home.html'
-], function ($, _, Backbone, base, globals, HomeTemplate) {
+], function ($, _, Backbone, base, globals, Game, HomeTemplate) {
 
     'use strict';
 
@@ -16,7 +17,7 @@ define([
         currentView: null,
 
         events: {
-            'submit #send-message-form': 'sendMessage',
+            'click #send': 'sendMessage',
         },
 
         initialize: function () {
@@ -27,8 +28,9 @@ define([
         },
 
         sendMessage : function () {
-            this.socket.emit('chat message', $('#m').val());
-            $('#m').val('');
+            // this.socket.emit('chat message', $('#m').val());
+            // $('#m').val('');
+            this.showGame();
             return false;
         },
 
@@ -59,6 +61,16 @@ define([
                 $(view.$el).fadeIn('fast');
                 this.currentView = view;
             }
+        },
+
+        showGame: function () {
+            var game = {};
+            game.south = {};
+            game.south.cards = [
+                {rank:'2', suit:'clubs'},
+                {rank:'q', suit:'spades'}
+            ];
+            this.showView('game', new Game.BaseView({model: game}));
         },
 
         render: function () {
